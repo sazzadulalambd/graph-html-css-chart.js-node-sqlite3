@@ -13,13 +13,23 @@ async function initializeChart() {
                 label: 'Sensor Data',
                 data: initialData.values,
                 borderColor: '#4CAF50',
+                backgroundColor:'#C9E7CA',
+                pointStyle: 'circle',
+                pointRadius: 5,
+                pointHoverRadius: 7,
                 tension: 0.1,
-                fill: false
+                fill: false,
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            plugins: {
+                title: {
+                  display: true,
+                  text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+                }
+              },
             scales: {
                 x: {
                     title: {
